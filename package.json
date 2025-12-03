@@ -1,0 +1,28 @@
+{
+  "name": "scalpe-trading-web",
+  "version": "1.0.0",
+  "description": "Professional trading platform with AI-powered chart analysis",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o",
+    "deploy:vercel": "vercel --prod",
+    "deploy:netlify": "netlify deploy --prod"
+  },
+  "keywords": [
+    "trading",
+    "scalping",
+    "crypto",
+    "ai-analysis",
+    "trading-platform"
+  ],
+  "author": "Pachaiappannarayanaswamy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pachaiappannarayanaswamy/SCALPE-TRADING-WEB.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCALPE | Subscriptions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="subscriptions">
+    <div class="logo-intro">
+        <div class="logo-intro__orbit"></div>
+        <span>SCALPE</span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="home.html">SCALPE</a>
+        <nav>
+            <a href="home.html">Dashboard</a>
+            <a href="analysis.html">AI Analysis</a>
+            <a href="faq.html">FAQ</a>
+            <a href="subscriptions.html" class="active">Subscriptions</a>
+        </nav>
+        <div class="header-meta">
+            <span class="status-dot live"></span>
+            <span>Billing</span>
+            <a class="ghost-btn" href="index.html">Logout</a>
+        </div>
+    </header>
+
+    <main class="page-shell subscription-shell">
+        <section class="subscription-hero">
+            <h1>Choose the execution plan that matches your desk velocity</h1>
+            <p>Each tier unlocks additional venues, support intensity and automation bandwidth. Toggle billing cadence and we will update pricing instantly.</p>
+            <div class="billing-toggle">
+                <span>Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider"></span>
+                </label>
+                <span>Yearly <small>(save 20%)</small></span>
+            </div>
+        </section>
+
+        <section class="plan-grid" id="planGrid">
+            <article class="plan-card" data-plan="Starter" data-monthly="99" data-yearly="79">
+                <h3>Starter</h3>
+                <p class="price">$99 <span>/mo</span></p>
+                <ul>
+                    <li>2 exchange connections</li>
+                    <li>Manual + semi-auto scalps</li>
+                    <li>Community support</li>
+                </ul>
+                <button class="ghost-btn select-plan">Activate Starter</button>
+            </article>
+            <article class="plan-card featured" data-plan="Pro" data-monthly="249" data-yearly="199">
+                <div class="badge">Desk favorite</div>
+                <h3>Pro</h3>
+                <p class="price">$249 <span>/mo</span></p>
+                <ul>
+                    <li>6 exchange connections</li>
+                    <li>Full automation API</li>
+                    <li>Priority desk support</li>
+                </ul>
+                <button class="primary-btn select-plan">Activate Pro</button>
+            </article>
+            <article class="plan-card" data-plan="Quantum" data-monthly="540" data-yearly="480">
+                <h3>Quantum</h3>
+                <p class="price">$540 <span>/mo</span></p>
+                <ul>
+                    <li>Global colocation</li>
+                    <li>Dedicated quant support</li>
+                    <li>Unlimited automation</li>
+                </ul>
+                <button class="ghost-btn select-plan">Activate Quantum</button>
+            </article>
+        </section>
+
+        <section class="payment-options">
+            <header>
+                <div>
+                    <p class="eyebrow">Subscription Checkout</p>
+                    <h2>Pick a plan, choose payment and confirm</h2>
+                </div>
+                <div class="summary">
+                    <p>Selected plan:</p>
+                    <strong id="selectedPlanLabel">None</strong>
+                    <p>Total:</p>
+                    <strong id="selectedPlanPrice">$0</strong>
+                </div>
+            </header>
+
+            <form id="paymentForm" class="payment-form">
+                <fieldset>
+                    <legend>Payment rail</legend>
+                    <label>
+                        <input type="radio" name="payment" value="Card" checked>
+                        Credit / Debit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="Wire">
+                        Wire Transfer (SWIFT/SEPA)
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="Crypto">
+                        Crypto (USDT / USDC / BTC)
+                    </label>
+                </fieldset>
+                <label>
+                    Company or trader name
+                    <input type="text" name="company" placeholder="Desk Alpha LLC" required>
+                </label>
+                <label>
+                    Contact email
+                    <input type="email" name="contact" placeholder="ops@desk.com" required>
+                </label>
+                <button class="primary-btn" type="submit">Confirm Subscription</button>
+                <p class="meta">Secure payments processed through PCI-DSS certified partners.</p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Transparent billing · Cancel anytime · Instant upgrades</p>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+

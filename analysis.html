@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCALPE | AI Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="analysis">
+    <div class="logo-intro">
+        <div class="logo-intro__orbit"></div>
+        <span>SCALPE</span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="home.html">SCALPE</a>
+        <nav>
+            <a href="home.html">Dashboard</a>
+            <a href="analysis.html" class="active">AI Analysis</a>
+            <a href="faq.html">FAQ</a>
+            <a href="subscriptions.html">Subscriptions</a>
+        </nav>
+        <div class="header-meta">
+            <span class="status-dot live"></span>
+            <span>AI Engine</span>
+            <a class="ghost-btn" href="index.html">Logout</a>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="analysis-hero">
+            <div>
+                <p class="eyebrow">AI-Powered Trading Analysis</p>
+                <h1>Upload Trading Charts & Get Instant AI Insights</h1>
+                <p>Upload screenshots of trading charts, candlestick patterns, or market data. Our AI analyzes patterns, trends, and potential trading opportunities using advanced vision models.</p>
+            </div>
+        </section>
+
+        <section class="analysis-card">
+            <div class="api-key-section">
+                <label>
+                    <span>Gemini API Key</span>
+                    <small>Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></small>
+                    <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API key" autocomplete="off">
+                    <button type="button" class="ghost-btn" id="saveApiKey">Save Key</button>
+                </label>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-content">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3>Drop your trading chart image here</h3>
+                        <p>or click to browse</p>
+                        <small>Supports: PNG, JPG, JPEG, WEBP (Max 10MB)</small>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                </div>
+
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <div class="preview-header">
+                        <h3>Uploaded Image</h3>
+                        <button type="button" class="ghost-btn" id="removeImage">Remove</button>
+                    </div>
+                    <img id="previewImg" alt="Preview">
+                    <button type="button" class="primary-btn" id="analyzeBtn">
+                        <span class="btn-text">Analyze with AI</span>
+                        <span class="btn-loader" style="display: none;">⏳</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="analysis-results" id="analysisResults" style="display: none;">
+                <div class="results-header">
+                    <h2>AI Analysis Results</h2>
+                    <button type="button" class="ghost-btn" id="clearResults">Clear</button>
+                </div>
+                <div class="results-content" id="resultsContent">
+                    <!-- AI analysis will appear here -->
+                </div>
+            </div>
+
+            <div class="analysis-history" id="analysisHistory">
+                <h3>Recent Analyses</h3>
+                <div class="history-list" id="historyList">
+                    <p class="empty">No analysis history yet. Upload an image to get started.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 SCALPE. Powered by Google Gemini AI.</p>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+

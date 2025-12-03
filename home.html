@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCALPE | Workspace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+    <div class="logo-intro">
+        <div class="logo-intro__orbit"></div>
+        <span>SCALPE</span>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="home.html">SCALPE</a>
+        <nav>
+            <a href="home.html" class="active">Dashboard</a>
+            <a href="analysis.html">AI Analysis</a>
+            <a href="faq.html">FAQ</a>
+            <a href="subscriptions.html">Subscriptions</a>
+        </nav>
+        <div class="header-meta">
+            <span class="status-dot live"></span>
+            <span>Markets Open</span>
+            <a class="ghost-btn" href="index.html">Logout</a>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="dashboard-hero">
+            <div>
+                <p class="eyebrow">Session Welcome</p>
+                <h1>Plan simple trades in one clean workspace</h1>
+                <p>Log ideas, choose the market, and track targets without learning a complicated platform. Everything here is written in plain language so new scalpers feel at home.</p>
+                <div class="hero-actions">
+                    <button class="primary-btn" id="newPlaybook">New Playbook</button>
+                    <button class="ghost-btn">Stream Market Pulse</button>
+                </div>
+            </div>
+            <div class="hero-widget">
+                <div class="widget-block">
+                    <p class="eyebrow">Digital Majors</p>
+                    <div class="ticker">
+                        <span>BTC</span>
+                        <strong>67,420</strong>
+                        <span class="gain">+3.8%</span>
+                    </div>
+                    <div class="ticker">
+                        <span>ETH</span>
+                        <strong>3,480</strong>
+                        <span class="loss">-1.2%</span>
+                    </div>
+                </div>
+                <div class="widget-block">
+                    <p class="eyebrow">NSE / BSE Pulse</p>
+                    <div id="indiaTickerList" class="ticker-list">
+                        <div class="ticker">
+                            <span>Loading NSE feed…</span>
+                            <strong>--</strong>
+                            <span class="neutral">0.00%</span>
+                        </div>
+                    </div>
+                    <small class="neutral" id="indiaMarketStatus">Awaiting India market context…</small>
+                </div>
+                <div class="mini-chart">
+                    <div class="chart-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics-grid">
+            <article>
+                <p>Net P/L (Week)</p>
+                <h3>$18,420</h3>
+                <small class="gain">+12.6%</small>
+            </article>
+            <article>
+                <p>Win Rate</p>
+                <h3>68%</h3>
+                <small class="neutral">+2.1% vs prev</small>
+            </article>
+            <article>
+                <p>Avg Hold</p>
+                <h3>7m 12s</h3>
+                <small class="loss">-10s drift</small>
+            </article>
+            <article>
+                <p>Capital Deployed</p>
+                <h3>$240k</h3>
+                <small class="neutral">Auto hedged: 42%</small>
+            </article>
+        </section>
+
+        <section class="watchlist-card">
+            <header>
+                <div>
+                    <p class="eyebrow">Active Watchlist</p>
+                    <h2>Save trades with a 3-step guided form</h2>
+                    <p class="helper-text">Pick a market, choose Long or Short, then enter entry/target levels. You can edit or delete anytime.</p>
+                </div>
+                <button class="ghost-btn" id="resetTrades">Reset</button>
+            </header>
+
+            <form id="tradeForm" class="trade-form">
+                <input type="hidden" name="tradeId" id="tradeId">
+                <label>
+                    Asset / Pair
+                    <input type="text" name="asset" placeholder="e.g. NSE:INFY" required>
+                </label>
+                <label>
+                    Market Focus
+                    <select name="market" id="marketSelect" required>
+                        <option value="">Choose</option>
+                        <option value="global">Global / Crypto (USD)</option>
+                        <option value="nse" selected>NSE India (INR)</option>
+                        <option value="bse">BSE India (INR)</option>
+                    </select>
+                </label>
+                <label>
+                    Bias
+                    <select name="bias" required>
+                        <option value="">Select</option>
+                        <option value="Long">Long</option>
+                        <option value="Short">Short</option>
+                    </select>
+                </label>
+                <label>
+                    Entry
+                    <div class="input-with-tag">
+                        <span class="currency-tag" data-entry-currency>₹</span>
+                        <input type="number" step="0.01" name="entry" placeholder="00.00" required>
+                    </div>
+                </label>
+                <label>
+                    Target
+                    <div class="input-with-tag">
+                        <span class="currency-tag" data-target-currency>₹</span>
+                        <input type="number" step="0.01" name="target" placeholder="00.00" required>
+                    </div>
+                </label>
+                <button class="primary-btn" type="submit">Add Position</button>
+            </form>
+
+            <div class="table-shell">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Market</th>
+                            <th>Bias</th>
+                            <th>Entry</th>
+                            <th>Target</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tradesTable">
+                        <tr>
+                            <td colspan="6" class="empty">No trades yet. Add your first scalp idea.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="quickstart-card">
+            <header>
+                <p class="eyebrow">Beginner Quick Start</p>
+                <h2>Follow these simple steps</h2>
+            </header>
+            <ol class="quickstart-list">
+                <li><strong>Log in</strong> with any email to unlock the dashboard.</li>
+                <li><strong>Open the trade form</strong> and type the symbol (e.g., NSE:INFY or BTC-USD).</li>
+                <li><strong>Select the market focus</strong> so prices show in USD or INR automatically.</li>
+                <li><strong>Enter entry & target</strong>; use the currency hint to avoid mistakes.</li>
+                <li><strong>Check India Market Overlay</strong> for current session status and key movers.</li>
+                <li><strong>Use AI Analysis</strong> to upload a chart and receive a plain-language summary.</li>
+            </ol>
+        </section>
+
+        <section class="india-market-card">
+            <header>
+                <div>
+                    <p class="eyebrow">India Market Overlay</p>
+                    <h2>Execute NSE/BSE scalps alongside global flows</h2>
+                </div>
+                <span class="market-session" id="indiaSessionLabel">Session timing syncing…</span>
+            </header>
+            <div class="india-market-grid">
+                <article>
+                    <p class="eyebrow">Cash Market Leaders</p>
+                    <div id="indiaMarketLeaders" class="india-leaders">
+                        <p class="muted">Building leader board…</p>
+                    </div>
+                </article>
+                <article>
+                    <p class="eyebrow">Events & Triggers</p>
+                    <ul id="indiaMarketEvents" class="india-events">
+                        <li>Importing RBI + earnings catalysts…</li>
+                    </ul>
+                </article>
+                <article>
+                    <p class="eyebrow">Execution Checklist</p>
+                    <ul class="india-checklist">
+                        <li>Mark circuit limits on NSE/BSE contracts</li>
+                        <li>Align currency exposure (INR vs USD legs)</li>
+                        <li>Route via low-latency India gateway</li>
+                        <li>Stage iceberg orders before auction close</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="intel-grid">
+            <article>
+                <h3>Liquidity Matrix</h3>
+                <p>Cross-exchange delta surf highlights Binance and OKX as the leading engines for BTC short-term liquidity.</p>
+                <button class="ghost-btn">Run overlay</button>
+            </article>
+            <article>
+                <h3>Macro Pulse</h3>
+                <p>FOMC futures pricing in 42 bps cut. Adjust leverage ladder and tighten stops around 21:00 UTC.</p>
+                <button class="ghost-btn">Add to brief</button>
+            </article>
+            <article>
+                <h3>Desk Chatter</h3>
+                <p>Quant pod sharing new imbalance detector. Review in #desk-focus before New York open.</p>
+                <button class="ghost-btn">Join call</button>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 SCALPE. Engineered for microstructure speed.</p>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
+
